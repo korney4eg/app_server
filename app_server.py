@@ -11,9 +11,10 @@ class myHandler(BaseHTTPRequestHandler):
   
   #Handler for the GET requests
   def do_GET(self):
-    if self.path == '/slowly':
-      time.sleep(15) 
-      message = 'Am I too slow'
+    responce_code = 200
+    if self.path == '/dead':
+      responce_code = 502
+      message = "I'm deade"
     elif self.path == '/release-kraken':
       message = 'Looks like it should start leaking'
     else:
